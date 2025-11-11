@@ -1,3 +1,13 @@
+```yaml
+---
+title: "Observabilidad y monitoreo"
+description: "Sección enfocada a los pilares de observabilidad y entendimiento de cada uno de ellos, además de integrar diferentes plataformas de observabilidad para el monitoreo de datos"
+customSlug: "observabilidad-y-monitoreo"
+folder: "Observabilidad"
+subfolder: ""
+---
+```
+
 # Introducción
 Primero que nada debemos tener bien en mente que **la observabilidad es la capacidad de comprender el estado de un sistema** mediante el analisis de sus datos, esto nos permite detectar e identificar qué, como, cuando y donde ocurre cualquier problema y/o errores que se presente en nuestro sistema.
 En la actualidad identificar cada evento generado en nuestros sistemas, se vuelve un reto cada vez más complicado debido a la cantidad de elementos que interactúan en un sistema, el poder resolver una tarea puede consistir desde un solo llamado a un microservicio, hasta el poder consumir cientos de microservicios y llamados a bases de datos, con lo cual, el saber que ocurre en cada elemento y como se comporta es una tarea que puede tomar mucho tiempo y el resolver un problema puede ser bastante desgastante.
