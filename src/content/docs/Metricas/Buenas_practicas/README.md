@@ -2,8 +2,8 @@
 title: "Buenas practicas en metricas"
 description: "Se describen las buenas practicas que se tienen que contemplar en la recolección de metricas"
 customSlug: "buenas-practicas-en-metricas"
-folder: "Observabilidad"
-subfolder: "Pilares de la observabilidad"
+folder: "Metricas"
+subfolder: "Buenas_practicas"
 ---
 
 # Buenas practicas
