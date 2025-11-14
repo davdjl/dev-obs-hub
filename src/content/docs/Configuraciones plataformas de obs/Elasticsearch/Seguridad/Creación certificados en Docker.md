@@ -136,7 +136,7 @@ contenedor con este volumen:
 
 >../certs/elasticsearch-ssl-http/kibana/elasticsearch-ca.pem:/usr/share/kibana/config/elasticsearch-ca.pem:ro
 
-# 7. Cifrado de tráfico entre el navegador y kiabana
+# 7. Cifrado de tráfico entre el navegador y kibana
 
 - Generar una solicitud de firma de certificado (CSR), y una clave privada (.key) para Kibana, tal como lo describe la documentación: <https://www.elastic.co/docs/deploy-manage/security/set-up-basic-security-plus-https#encrypt-kibana-elasticsearch>
 
