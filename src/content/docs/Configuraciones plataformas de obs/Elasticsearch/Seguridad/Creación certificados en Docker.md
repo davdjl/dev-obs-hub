@@ -43,7 +43,7 @@ nodos de elastic, otro para Kibana y uno último para APM.
 
 - Se recomienda una carpeta exclusiva para el proyecto, dentro las carpetas extras necesarias para cada servicio:
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen1.png)
+![imagen](/public/images/Imagen1.png)
 
 - Dentro de la carpeta de cada servicio, guardar el archivo docker-compose.yml correspondiente.
 
