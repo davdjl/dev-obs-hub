@@ -43,7 +43,7 @@ nodos de elastic, otro para Kibana y uno último para APM.
 
 - Se recomienda una carpeta exclusiva para el proyecto, dentro las carpetas extras necesarias para cada servicio:
 
-![imagen](/public/images/Imagen1.png)
+![carpetas](/public/images/carpetas.png)
 
 - Dentro de la carpeta de cada servicio, guardar el archivo docker-compose.yml correspondiente.
 
@@ -61,24 +61,24 @@ creados.
 
 - Creación de contenedores basados en el archivo docker-compose.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen2.png)
+![contenedores](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/contenedores.png)
 
 # 2. Generar el CA (certificado de autoridad)
 
 - un CA para el clúster.
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen3.png) 
+![certificado CA](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/certificado_CA.png) 
 
 - Generar el certificado p12 firmado por el CA.
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen4.png) 
+![certificado firmado](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/certificado_firmado.png) 
 
 - Copiar ambos certificados en la carpeta local creada en pasos anteriores
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen5.png) 
+![certificados](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/certificados.png) 
 
 # 3. Configurar HTTPS
 
 - Generar los certificados necesarios para habilitar HTTPS en los nodos de Elasticsearch.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen6.png)
+![HTTPS](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/HTTPS.png)
 
 Nota: seguir todos los pasos descritos en la documentación:
 <https://www.elastic.co/docs/deploy-manage/security/set-up-basic-security-plus-https>
@@ -91,15 +91,15 @@ En el paso (i) solicitarán las direcciones IP, sin embargo, al utilizar docker 
 
 - Una vez extraída la carpeta, deberá haber 2 carpetas una de elasticsearch y otra de Kibana, ambas se pueden copiar localmente.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen7.png)
+![ELK y kibana](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/ELK_y_kibana.png)
 
 - Dentro de la carpeta de ambas carpetas están los certificados correspondientes para cada uno.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen8.png)
+![SSL](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/SSL.png)
 
 - En el docker-compose de elasticsearch, se agregarán las configuraciones necesarias para extraer los certificados por cada nodo.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen9.png)
+![Seguridad](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Seguridad.png)
 
 # 4. Validación
 
@@ -107,7 +107,7 @@ En el paso (i) solicitarán las direcciones IP, sin embargo, al utilizar docker 
 
 - Colocar la dirección <https://9210> para validar que elasticsearch levantó correctamente
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen10.png) 
+![localhost](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/localhost.png) 
 
 # 5. Creación del docker-compose para Kibana
 
@@ -121,7 +121,7 @@ El ejemplo del archivo docker-compose para Kibana está disponible en:
 
 - En el certificado http previamente creado, se encuentra una carpeta de Kibana con el certificado .pem
 
-![Imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen11.png)
+![Certificado pem](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Certificado_pem.png)
 
 - Ese archivo se utiliza para configurar Kibana y que confíe en la CA de Elasticsearch para la capa HTTP.
 
@@ -142,7 +142,7 @@ contenedor con este volumen:
 
 Comando: ./bin/elasticsearch-certutil csr -name kibana-server
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen12.png)
+![Kibana server](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Kibana_server.png)
 
 - Descomprimir la carpeta zip para obtener el kibana-server.csr certificado de seguridad sin firmar y la kibana-server.key clave privada sin cifrar.
 
@@ -164,7 +164,7 @@ Consideraciones
 
 2.  Se ejecuta desde el nodo maestro del clúster
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen13.png)
+![Usuario de kibana](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/usuario_de_kibana.png)
 
 # 9. Validación
 
@@ -172,11 +172,11 @@ Consideraciones
 
 - Colocar la dirección <http://5610> para validar que kibana levantó correctamente
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen14.png)
+![Kibana](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Kibana.png)
 
 - Colocar usuario (elastic por default) y contraseña (definida previamente en el docker-compose de elasticsearch)
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen15.png)
+![Contraseña](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Contraseña.png)
 
 # 10. Creación del docker-compose para APM
 
@@ -188,11 +188,11 @@ Consideraciones
 
 - Creación del contenedor basado en el archivo docker-compose y en el apm-server.yml.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen16.png)
+![APM](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/APM.png)
 
 - El archivo apm-server.yml define el comportamiento de APM, como los servicios a los que se conectará, por medio de qué puertos escuchará, qué seguridad aplicará, entre otras cosas.
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen17.png)
+![Configuración APM](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Configuración_APM.png)
 
 - Es importante montar el certificado .pem (que se monto para el contenedor de Kibana) y el archivo de configuración apm-server.yml anteriormente creado.
 
@@ -202,8 +202,8 @@ Consideraciones
 
 - Colocar la dirección http://localhost:5610/app/apm para validar que kibana levantó correctamente
 
-![imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen18.png)
+![Consola de Kibana](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Consola_de_Kibana.png)
 
 - Se comprueba el envío y recibo de datos
 
-![Imagen](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Imagen19.png)
+![Aplicación](https://raw.githubusercontent.com/davdjl/dev-obs-hub/main/public/images/Aplicación.png)
